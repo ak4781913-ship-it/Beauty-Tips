@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /saved
+
+# Production Sitemap
+Sitemap: https://www.beautytipsbyabbas.com/sitemap.xml
+Sitemap: /sitemap.xml

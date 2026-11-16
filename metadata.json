@@ -1,0 +1,6 @@
+{
+  "name": "Beauty Tips by Abbas",
+  "description": "Your everyday beauty, skincare, haircare, makeup, and natural self-care guide with personalized routines and expert advice.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

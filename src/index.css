@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 140, 140, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 140, 140, 0.45);
+}
+
+/* ==========================================================================
+   Screen-Only and Print-Only Helper Visibility
+   ========================================================================== */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Print-Friendly CSS Media Query for Paper & Offline Beauty Tip Reference
+   Strips unnecessary UI (navigation, sidebars, audio players, ads, comments,
+   social share buttons, and background colors) and optimizes typography.
+   ========================================================================== */
+@media print {
+  @page {
+    size: portrait;
+    margin: 1.6cm 1.4cm 1.6cm 1.4cm;
+  }
+
+  /* 1. Global Ink-Saving & White Paper Reset */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html,
+  body,
+  #root,
+  .min-h-screen {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Strip All Non-Essential Screen UI Elements */
+  header,
+  footer,
+  nav,
+  aside,
+  .no-print,
+  [data-no-print="true"],
+  .site-header,
+  .site-footer,
+  .smartlink-promo-bar,
+  .scroll-progress-indicator,
+  #article-audio-player,
+  #community-feedback,
+  #recent-reading-trail,
+  .adsterra-container,
+  .toast-container,
+  .modal-backdrop,
+  button,
+  input,
+  textarea,
+  iframe,
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  /* 3. Display Offline Reference Headers & Footers */
+  .print-only {
+    display: block !important;
+  }
+
+  /* 4. Optimize Article Main Container for Paper */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  article,
+  [data-reading-container="true"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 5. Clean, Crisp Paper Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f172a !important;
+    font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif) !important;
+    font-weight: 600 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 22pt !important;
+    line-height: 1.15 !important;
+    margin-top: 0 !important;
+    margin-bottom: 8pt !important;
+    color: #09090b !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    line-height: 1.25 !important;
+    margin-top: 14pt !important;
+    margin-bottom: 6pt !important;
+    border-bottom: 1pt solid #cbd5e1 !important;
+    padding-bottom: 3pt !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    line-height: 1.3 !important;
+    margin-top: 10pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  p, li, span {
+    color: #334155 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 6. Card & Box Outlines for Steps, Pro Tips & Precautions */
+  section,
+  .rounded-2xl,
+  .rounded-3xl {
+    border: 1pt solid #cbd5e1 !important;
+    border-radius: 4pt !important;
+    background: #f8fafc !important;
+    padding: 8pt 10pt !important;
+    margin-bottom: 10pt !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Prevent awkward page break cuts across steps and callouts */
+  .step-item,
+  div[class*="rounded-2xl"],
+  div[class*="rounded-3xl"] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force all FAQ answers to be visible on printed paper */
+  .faq-answer,
+  [data-faq-answer],
+  div[class*="overflow-hidden"] > div:last-child {
+    display: block !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* 7. Image Optimization for Printing */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 200pt !important;
+    object-fit: cover !important;
+    border-radius: 4pt !important;
+    border: 1pt solid #cbd5e1 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* 8. Clean Link Presentation */
+  a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+  }
+}
